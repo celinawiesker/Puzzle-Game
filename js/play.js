@@ -51,30 +51,21 @@ Game.Play.prototype = {
     this.puzzle = new Puzzle(this.game, level.toString(), this.square);
     this.puzzle.scatter();
 
-    this.preview_button = this.game.add.button(Game.w - 100, 0, 'preview', this.puzzle.preview_toggle, this.puzzle);
-    this.preview_button.tint = 0xff00ff;
+    this.preview_button = this.game.add.button(Game.w - 100, 20, 'preview', this.puzzle.preview_toggle, this.puzzle);
+    this.preview_button.scale.setTo(1.05)
 
-    this.menu_button = this.game.add.button(50, 0, 'settings', this.gotoMenu, this);
-    this.menu_button.tint = 0xff00ff;
+    this.back_button = this.game.add.button(50, 20, 'back', this.gotoGallery, this);
+    this.back_button.scale.setTo(0.1)
+  },
+  
+  gotoGallery: function () {
+    this.game.state.start('Gallery');
+  },
 
-  },
-  gotoMenu: function () {
-    this.game.state.start('Menu');
-  },
-  makeBox: function (x, y) {
-    var bmd = this.game.add.bitmapData(x, y);
-    bmd.ctx.beginPath();
-    bmd.ctx.rect(0, 0, x, y);
-    bmd.ctx.fillStyle = '#fff';
-    bmd.ctx.fill();
-    return bmd;
-  },
   update: function () {
 
     if (this.puzzle.won === true) {
       this.game.input.onUp.add(this.nextLevel, this);
-      // this.win_text = this.game.add.bitmapText(Game.w / 2, Game.h / 2, 'minecraftia', 'GREAT JOB!\nClick to Play Again.', 24);
-      // this.win_text.anchor.setTo(0.5);
     }
 
   },

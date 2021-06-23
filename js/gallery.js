@@ -12,16 +12,9 @@ Game.Gallery.prototype = {
     //console.log(background)
     background.scale.setTo(4)
 
-    // this.menu_button = this.game.add.button(0, 0, this.makeBox(200, 50), this.gotoMenu, this);
-    // this.menu_button.tint = 0xff00ff;
-    // this.game.add.bitmapText(50, 10, 'minecraftia', 'Menu', 24);
-
     this.menu_button = this.game.add.button(50, 0, 'settings', this.gotoMenu, this);
     this.menu_button.scale.setTo(1.25)
-    this.menu_button.tint = 0xff4b4b4b;
-    // settingsbtn.setInteractive();
-    // settingsbtn.on('pointerdown', () => this.scene.start('Puzzle_Menu'))
-    //settingsbtn.setScale(0.5);
+
 
     x = 220;
     y = 160;
@@ -47,16 +40,8 @@ Game.Gallery.prototype = {
   gotoMenu: function () {
     this.game.state.start('Menu');
   },
-  makeBox: function (x, y) {
-    var bmd = this.game.add.bitmapData(x, y);
-    bmd.ctx.beginPath();
-    bmd.ctx.rect(0, 0, x, y);
-    bmd.ctx.fillStyle = '#fff';
-    bmd.ctx.fill();
-    return bmd;
-  },
+
   loadLevel: function () {
-    // console.log(arguments[0].key);
     level = arguments[0].key;
     this.game.state.start('Play');
   }

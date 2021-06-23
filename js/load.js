@@ -45,11 +45,12 @@ Game.Load.prototype = {
     this.game.load.image('normal','assets/images/normal.svg');
     this.game.load.image('hard','assets/images/hard.svg');
     this.game.load.image('startbtn', 'assets/images/startbtn.svg'); 
-    this.load.image('settings', 'assets/images/settings.png');
-    this.load.image('preview', 'assets/images/preview.png');
+    this.load.image('settings', 'assets/images/settings.svg');
+    this.load.image('preview', 'assets/images/preview.svg');
     this.load.image('difficulty', 'assets/images/difficulty.png');
     this.load.image('background', 'assets/images/title.svg');
     this.load.image('play_bg', 'assets/images/play_bg.png');
+    this.load.image('back', 'assets/images/button_grey.png');
    
     for(var i = 1;i < 10;i++) {
       this.game.load.image(i.toString(), 'assets/images/'+i.toString()+'.svg');
@@ -58,7 +59,7 @@ Game.Load.prototype = {
 
   },
   create: function() {
-    this.game.state.start('Gallery');
+    this.game.state.start('Menu');
     // this.game.state.start('Play');
   }
 };
